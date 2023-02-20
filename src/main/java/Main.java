@@ -44,6 +44,7 @@ public class Main {
                 new Vector4f(0.0f,1.0f,0.0f,0.0f)
         ));
     }*/
+        //rumput
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
@@ -52,16 +53,88 @@ public class Main {
                 ),
                 new ArrayList<>(
                         List.of(
-                                new Vector3f(0.0f, 0.0f, 0.0f),
-                                new Vector3f(0.5f, 0.0f, 0.0f),
-                                new Vector3f(0.0f, 0.5f, 0.0f),
-                                new Vector3f(0.5f, 0.5f, 0.0f)
+                                new Vector3f(-1.0f, -1.0f, 0.0f),
+                                new Vector3f(1.0f, -1.0f, 0.0f),
+                                new Vector3f(-1.0f, -0.45f, 0.0f),
+                                new Vector3f(1.0f, -0.45f, 0.0f)
                         )
                 ),
                 new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
                 Arrays.asList(0, 1, 2, 1, 2, 3)
         ));
-        objects.add(new Object2d(
+        //atap belakang
+        objectsRectangle.add(new Rectangle(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(-0.55f, 0.2f, 0.0f),
+                                new Vector3f(0.55f, 0.2f, 0.0f),
+                                new Vector3f(-0.8f, -0.2f, 0.0f),
+                                new Vector3f(0.8f, -0.2f, 0.0f)
+                        )
+                ),
+                new Vector4f(0.6f, 0.0f, 0.0f, 0.0f),
+                Arrays.asList(0, 1, 2, 1, 2, 3)
+        ));
+        //badan rumah
+        objectsRectangle.add(new Rectangle(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(-0.65f, -0.1f, 0.0f),
+                                new Vector3f(0.65f, -0.1f, 0.0f),
+                                new Vector3f(-0.65f, -0.6f, 0.0f),
+                                new Vector3f(0.65f, -0.6f, 0.0f)
+                        )
+                ),
+                new Vector4f(1.0f, 0.65f, 0.0f, 0.0f),
+                Arrays.asList(0, 1, 2, 1, 2, 3)
+        ));
+        //badan rumah atap
+        objectsRectangle.add(new Rectangle(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(-0.53f, 0.15f, 0.0f),
+                                new Vector3f(0.53f, 0.15f, 0.0f),
+                                new Vector3f(-0.65f, -0.1f, 0.0f),
+                                new Vector3f(0.65f, -0.1f, 0.0f)
+                        )
+                ),
+                new Vector4f(1.0f, 0.65f, 0.0f, 0.0f),
+                Arrays.asList(0, 1, 2, 1, 2, 3)
+        ));
+        //atap depan
+        objectsRectangle.add(new Rectangle(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(-0.55f, 0.2f, 0.0f),
+                                new Vector3f(0.55f, 0.2f, 0.0f),
+                                new Vector3f(-0.45f, -0.2f, 0.0f),
+                                new Vector3f(0.8f, -0.2f, 0.0f)
+                        )
+                ),
+                new Vector4f(0.6f, 0.0f, 0.0f, 0.0f),
+                Arrays.asList(0, 1, 2, 1, 2, 3)
+        ));
+        /*objects.add(new Object2d(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
                         new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/sceneWithVerticesColor.vert", GL_VERTEX_SHADER),
@@ -82,13 +155,13 @@ public class Main {
                         )
                 )
         ));
-
+*/
     }
 
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+            glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
             GL.createCapabilities();
 
             //code
