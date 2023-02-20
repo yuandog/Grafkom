@@ -24,7 +24,7 @@ public class Main {
         GL.createCapabilities();
 
         // code
-        objects.add(new Object2d(
+        /*objects.add(new Object2d(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
@@ -35,6 +35,30 @@ public class Main {
                                 new Vector3f(0.0f, 0.5f, 0.0f),
                                 new Vector3f(-0.5f, -0.5f, 0.0f),
                                 new Vector3f(0.5f, -0.5f, 0.0f)
+                        )
+                ),
+
+                new Vector4f(0.0f,1.0f,0.0f,0.0f)
+        ));
+    }*/
+        objects.add(new Object2d(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/sceneWithVerticesColor.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/sceneWithVerticesColor.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(0.0f, 0.5f, 0.0f),
+                                new Vector3f(-0.5f, -0.5f, 0.0f),
+                                new Vector3f(0.5f, -0.5f, 0.0f)
+                        )
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(1.0f, 0.0f, 0.0f),
+                                new Vector3f(0.0f, 1.0f, 0.0f),
+                                new Vector3f(0.0f, 0.0f, 1.0f)
                         )
                 )
         ));
@@ -48,7 +72,7 @@ public class Main {
 
             //code
             for (Object2d object : objects) {
-                object.draw();
+                object.drawWithVerticesColor();
             }
 
             //Restore state
