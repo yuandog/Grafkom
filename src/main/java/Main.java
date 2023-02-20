@@ -48,8 +48,8 @@ public class Main {
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -66,8 +66,8 @@ public class Main {
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -84,8 +84,8 @@ public class Main {
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -102,8 +102,8 @@ public class Main {
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -120,8 +120,8 @@ public class Main {
         objectsRectangle.add(new Rectangle(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -137,8 +137,8 @@ public class Main {
         /*objects.add(new Object2d(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/sceneWithVerticesColor.vert", GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("Grafkom/resources/shaders/sceneWithVerticesColor.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/sceneWithVerticesColor.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/sceneWithVerticesColor.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
