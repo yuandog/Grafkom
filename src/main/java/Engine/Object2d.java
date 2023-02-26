@@ -93,7 +93,7 @@ public class Object2d extends ShaderProgram {
 
        //wajib
        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-       glDrawArrays(GL_LINES,0,vertices.size());
+       glDrawArrays(GL_TRIANGLE_FAN,0,vertices.size());
    }
     public void drawWithVerticesColor(){
         drawSetupWithVerticesColor();
