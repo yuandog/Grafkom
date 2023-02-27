@@ -16,7 +16,6 @@ public class Rectangle extends Object2d{
         ibo = glGenBuffers();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
-
     }
     public void draw(){
         drawSetup();
@@ -36,4 +35,5 @@ public class Rectangle extends Object2d{
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
         glDrawElements(GL_LINE_LOOP, index.size(), GL_UNSIGNED_INT, 0);
     }
+
 }

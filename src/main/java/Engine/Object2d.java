@@ -95,6 +95,22 @@ public class Object2d extends ShaderProgram {
        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
        glDrawArrays(GL_TRIANGLE_FAN,0,vertices.size());
    }
+    public void drawLine(){
+        drawSetup();
+
+        //Draw the vertices
+        //optional
+        glLineWidth(1); //ketebalan garis
+        glPointSize(0); //besar kecil vertex
+
+        //wajib
+        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+        glDrawArrays(GL_TRIANGLE_FAN,0,vertices.size());
+    }
+    public void addVertices(Vector3f newVertices){
+        vertices.add(newVertices);
+        setupVAOVBO();
+    }
     public void drawWithVerticesColor(){
         drawSetupWithVerticesColor();
         //Draw the vertices
@@ -106,4 +122,5 @@ public class Object2d extends ShaderProgram {
         //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
         glDrawArrays(GL_TRIANGLES,0,vertices.size());
     }
+
 }
