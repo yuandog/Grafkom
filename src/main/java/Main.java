@@ -319,7 +319,7 @@ public class Main {
             pos.x = (pos.x - (window.getWidth()) / 2.0f) / (window.getWidth() / 2.0f);
             pos.y = (pos.y - (window.getHeight()) / 2.0f) / (-window.getHeight() / 2.0f);
 
-            if (!((pos.x > 1 || pos.x < -0.95) && !(pos.y > 0.95 || pos.y < -1))) {
+            if ((!(pos.x > 1 || pos.x < -0.95) && !(pos.y > 0.95 || pos.y < -1))) {
                 System.out.println("x : " + pos.x + " y : " + pos.y);
                 /*if (window.getMouseInput().getCurrentPos() == objectsPointsControl.get()){
                     return 0;
@@ -464,7 +464,6 @@ public class Main {
             if (controlLine != null) {
                 controlLine.drawLine();
             }
-
             for (Object2d object : curves) {
                 object.drawLine();
             }
