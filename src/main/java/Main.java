@@ -15,7 +15,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Main {
 
-    private Window window = new Window(600, 600, "Hello World");
+    private Window window = new Window(800, 800, "Hello World");
 
 //    private ArrayList<Object2d> objects = new ArrayList<>();
 //    private ArrayList<Object2d> objectsRectangle = new ArrayList<>();
@@ -336,10 +336,10 @@ public class Main {
                             ),
                             new ArrayList<>(
                                     List.of(
-                                            new Vector3f(pos.x + 0.05f, pos.y - 0.05f, 0),
-                                            new Vector3f(pos.x + 0.05f, pos.y + 0.05f, 0),
-                                            new Vector3f(pos.x - 0.05f, pos.y + 0.05f, 0),
-                                            new Vector3f(pos.x - 0.05f, pos.y - 0.05f, 0)
+                                            new Vector3f(pos.x + 0.1f, pos.y - 0.1f, 0),
+                                            new Vector3f(pos.x + 0.1f, pos.y + 0.1f, 0),
+                                            new Vector3f(pos.x - 0.1f, pos.y + 0.1f, 0),
+                                            new Vector3f(pos.x - 0.1f, pos.y - 0.1f, 0)
                                     )
                             ),
                             new Vector4f(1, 1, 0, 0),
@@ -364,10 +364,10 @@ public class Main {
                 // drag n drop
                 if (!objectsPointsControl.isEmpty() && checkOverlaps(pos) != -1) {
                     int clickedBox = checkOverlaps(pos);
-                    objectsPointsControl.get(clickedBox).vertices.set(0, new Vector3f(pos.x + 0.05f, pos.y - 0.05f, 0));
-                    objectsPointsControl.get(clickedBox).vertices.set(1, new Vector3f(pos.x + 0.05f, pos.y + 0.05f, 0));
-                    objectsPointsControl.get(clickedBox).vertices.set(2, new Vector3f(pos.x - 0.05f, pos.y + 0.05f, 0));
-                    objectsPointsControl.get(clickedBox).vertices.set(3, new Vector3f(pos.x - 0.05f, pos.y - 0.05f, 0));
+                    objectsPointsControl.get(clickedBox).vertices.set(0, new Vector3f(pos.x + 0.1f, pos.y - 0.1f, 0));
+                    objectsPointsControl.get(clickedBox).vertices.set(1, new Vector3f(pos.x + 0.1f, pos.y + 0.1f, 0));
+                    objectsPointsControl.get(clickedBox).vertices.set(2, new Vector3f(pos.x - 0.1f, pos.y + 0.1f, 0));
+                    objectsPointsControl.get(clickedBox).vertices.set(3, new Vector3f(pos.x - 0.1f, pos.y - 0.1f, 0));
                     objectsPointsControl.get(clickedBox).setupVAOVBO();
                     center.set(clickedBox, new Vector3f(pos.x, pos.y, 0));
                     controlLine.setupVAOVBO();
@@ -381,10 +381,10 @@ public class Main {
         int collapse = -1;
 
         for (Object2d object : objectsPointsControl) {
-            boolean collisionX = (pos.x + 0.05f <= object.vertices.get(2).x + 0.1f && object.vertices.get(2).x <= pos.x + 0.05f) ||
-                    (pos.x - 0.05f <= object.vertices.get(2).x + 0.1f && object.vertices.get(2).x <= pos.x + 0.05f);
-            boolean collisionY = (pos.y + 0.05f <= object.vertices.get(3).y + 0.1f && object.vertices.get(3).y <= pos.y + 0.05f) ||
-                    (pos.y - 0.05f <= object.vertices.get(3).y + 0.1f && object.vertices.get(3).y <= pos.y + 0.05f);
+            boolean collisionX = (pos.x + 0.1f <= object.vertices.get(2).x + 0.15f && object.vertices.get(2).x <= pos.x + 0.1f) ||
+                    (pos.x - 0.1f <= object.vertices.get(2).x + 0.15f && object.vertices.get(2).x <= pos.x + 0.1f);
+            boolean collisionY = (pos.y + 0.1f <= object.vertices.get(3).y + 0.15f && object.vertices.get(3).y <= pos.y + 0.1f) ||
+                    (pos.y - 0.1f <= object.vertices.get(3).y + 0.15f && object.vertices.get(3).y <= pos.y + 0.1f);
 
             if (collisionX && collisionY) {
                 collapse = index;
