@@ -9,7 +9,7 @@ import static org.lwjgl.opengl.GL30.*;
 
 public class Object2d extends ShaderProgram {
 
-    List<Vector3f> vertices, verticesColor;
+    public List<Vector3f> vertices, verticesColor;
     int vao;
     int vbo;
     UniformsMap uniformsMap;
@@ -105,7 +105,7 @@ public class Object2d extends ShaderProgram {
 
         //wajib
         //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-        glDrawArrays(GL_TRIANGLE_FAN,0,vertices.size());
+        glDrawArrays(GL_LINE_STRIP,0,vertices.size());
     }
     public void addVertices(Vector3f newVertices){
         vertices.add(newVertices);
