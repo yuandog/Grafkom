@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL30.*;
 
-public class Object2d extends ShaderProgram {
+public class Object extends ShaderProgram {
 
     public List<Vector3f> vertices, verticesColor;
     int vao;
@@ -17,7 +17,7 @@ public class Object2d extends ShaderProgram {
 
     int vboColor;
 
-    public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
+    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
         setupVAOVBO();
@@ -25,7 +25,7 @@ public class Object2d extends ShaderProgram {
         uniformsMap.createUniform("uni_color");
         this.color = color;
     }
-    public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, List<Vector3f> verticesColor) {
+    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, List<Vector3f> verticesColor) {
         super(shaderModuleDataList);
         this.vertices = vertices;
         this.verticesColor = verticesColor;
@@ -93,6 +93,7 @@ public class Object2d extends ShaderProgram {
 
        //wajib
        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+       //GL_POLYGON -> alternatif buat kotak
        glDrawArrays(GL_TRIANGLE_FAN,0,vertices.size());
    }
     public void drawLine(){
@@ -100,7 +101,7 @@ public class Object2d extends ShaderProgram {
 
         //Draw the vertices
         //optional
-        glLineWidth(1); //ketebalan garis
+        glLineWidth(5); //ketebalan garis
         glPointSize(0); //besar kecil vertex
 
         //wajib

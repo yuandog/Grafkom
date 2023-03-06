@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL30.*;
 
-public class Rectangle extends Object2d{
+public class Rectangle extends Object {
     List<Integer> index;
     int ibo;
     public Rectangle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, List<Integer> index){
