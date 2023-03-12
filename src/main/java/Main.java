@@ -1,6 +1,5 @@
 import Engine.*;
 import Engine.Object;
-import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
@@ -28,7 +27,7 @@ public class Main {
     private Object controlLine;
     private ArrayList<Object> curves = new ArrayList<>();
     private ArrayList<Vector3f> center = new ArrayList<>();
-    Sphere kotak;
+    Sphere sphere;
 
     public void init() {
         window.init();
@@ -327,7 +326,7 @@ public class Main {
 //                //gambar
 //                if (objectsPointsControl.isEmpty() || checkOverlaps(pos) == -1) {
 //
-//                    //object kotak
+//                    //object sphere
 //                    objectsPointsControl.add(new Rectangle(
 //                            Arrays.asList(
 //                                    // shaderFile lokasi menyesuaikan objectnya
@@ -442,7 +441,7 @@ public class Main {
 //                    new Vector4f(0, 1, 0, 1)
 //            ));
 //        }
-        kotak = new Sphere(
+        sphere = new Sphere(
                 Arrays.asList(
                         // shaderFile lokasi menyesuaikan objectnya
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
@@ -451,18 +450,12 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(1, 0, 0, 1),
                 Arrays.asList(0.0f, 0.0f, 0.0f),
-                0.3f,
-                0.4f,
-                0.4f,
+                0.6f,
+                0.7f,
+                0.7f,
                 36, 18
         );
-//        kotak.createBox();
-//        kotak.createSphere();
-        kotak.createEllipsoid();
-//        kotak.createHyperBoloid1Side();
-//        kotak.createHyperBoloid2Side();
-        kotak.setupVAOVBO();
-
+        sphere.setupVAOVBO();
     }
 
 
@@ -492,7 +485,7 @@ public class Main {
 //            for (Object object : objectsPointsControl) {
 //                object.draw();
 //            }
-            kotak.draw();
+            sphere.draw();
             //Restore state
             glDisableVertexAttribArray(0);
 
