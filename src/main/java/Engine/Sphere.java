@@ -23,9 +23,10 @@ public class Sphere extends Circle {
 
 //        createBox();
 //        createSphere();
-//        createEllipsoid();
+        createEllipsoid();
 //        createHyperBoloid1Side();
-        createEllipticCone();
+//        createHyperBoloid2Side();
+//        createEllipticCone();
 //        createEllipticParaboloid();
 //        createHyperboloidParaboloid();
         setupVAOVBO();
