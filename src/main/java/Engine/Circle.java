@@ -10,7 +10,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.GL_TRIANGLE_FAN;
 
 public class Circle extends Object {
-    List<Float> centerPoint;
+
     float radiusX;
     float radiusY;
 
@@ -69,17 +69,17 @@ public class Circle extends Object {
         }
     }
 
-    public void draw() {
-        drawSetup();
-
-        //Draw the vertices
-        //optional
-        glLineWidth(1); //ketebalan garis
-        glPointSize(0); //besar kecil vertex
-
-        //wajib
-        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-        //GL_POLYGON -> alternatif buat kotak
-        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
-    }
+//    public void draw() {
+//        drawSetup();
+//
+//        //Draw the vertices
+//        //optional
+//        glLineWidth(1); //ketebalan garis
+//        glPointSize(0); //besar kecil vertex
+//
+//        //wajib
+//        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+//        //GL_POLYGON -> alternatif buat kotak
+//        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
+//    }
 }

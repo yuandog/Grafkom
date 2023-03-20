@@ -5,6 +5,7 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,7 @@ public class Main {
     private ArrayList<Vector3f> center = new ArrayList<>();
     private ArrayList<Sphere> planets = new ArrayList<>();
     Sphere kotak;
+    int countDegree=0;
 
     public void init() {
         window.init();
@@ -296,25 +298,7 @@ public class Main {
 //                        )
 //                )
 //        ));*/
-//        kotak = new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.5f,
-//                0.5f,
-//                0.5f, 36,
-//                18
-//        );
-//        kotak.rotateObject(30.0f, 0.0f, 0.5f,1f);
-        //matahari
-        planets.add(new Sphere(Arrays.asList(
+        kotak = new Sphere(Arrays.asList(
                 new ShaderProgram.ShaderModuleData(
                         "resources/shaders/scene.vert", GL_VERTEX_SHADER),
                 new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
@@ -325,15 +309,14 @@ public class Main {
                 ),
                 new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
                 Arrays.asList(0f, 0f, 0f),
-                0.3f,
-                0.3f,
-                0.3f, 36,
+                0.5f,
+                0.5f,
+                0.5f, 36,
                 18
-        ));
-        planets.get(0).createSphere();
+        );
+        kotak.scaleObject(2f, 2f, 2f);
 
-        //merkurius
-        planets.add(new Sphere(Arrays.asList(
+        kotak.getChildObject().add(new Sphere(Arrays.asList(
                 new ShaderProgram.ShaderModuleData(
                         "resources/shaders/scene.vert", GL_VERTEX_SHADER),
                 new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
@@ -343,17 +326,18 @@ public class Main {
                         )
                 ),
                 new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
-                Arrays.asList(0.0f, 0.0f, 0f),
-                0.1f,
-                0.1f,
-                0.1f, 36,
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
                 18
         ));
-        planets.get(1).createSphere();
-        planets.get(1).translateObject(-0.5f,0.0f,0.0f);
+//        kotak.getChildObject().get(0).translateObject(0.25f,0.0f,0.0f);
+        kotak.getChildObject().get(0).scaleObject(0.5f,0.5f,0.5f);
+        kotak.getChildObject().get(0).translateObject(0.5f,-0.1f,0.0f);
+        kotak.getChildObject().get(0).setCenterPoint(Arrays.asList(0.5f,-0.1f,0.0f));
 
-        //venus
-        planets.add(new Sphere(Arrays.asList(
+        kotak.getChildObject().add(new Sphere(Arrays.asList(
                 new ShaderProgram.ShaderModuleData(
                         "resources/shaders/scene.vert", GL_VERTEX_SHADER),
                 new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
@@ -363,35 +347,95 @@ public class Main {
                         )
                 ),
                 new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
-                Arrays.asList(0.0f, 0.0f, 0f),
-                0.1f,
-                0.1f,
-                0.1f, 36,
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
                 18
         ));
-        planets.get(2).createSphere();
-        planets.get(2).translateObject(-0.7f,-0.1f,0.0f);
-
-        //bumi
-        planets.add(new Sphere(Arrays.asList(
-                new ShaderProgram.ShaderModuleData(
-                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-        ),
-                new ArrayList<>(
-                        List.of(
-                        )
-                ),
-                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
-                Arrays.asList(0.0f, 0.0f, 0f),
-                0.1f,
-                0.1f,
-                0.1f, 36,
-                18
-        ));
-        planets.get(3).createSphere();
-        planets.get(3).translateObject(-0.9f,0.0f,0.0f);
-
+//        kotak.getChildObject().get(1).translateObject(0.5f,0.0f,0.0f);
+        kotak.getChildObject().get(1).scaleObject(0.5f,0.5f,0.5f);
+        kotak.getChildObject().get(1).translateObject(-0.5f,-0.1f,0.0f);
+        kotak.getChildObject().get(1).setCenterPoint(Arrays.asList(-0.5f,-0.1f,0.0f));
+        //matahari
+//        planets.add(new Sphere(Arrays.asList(
+//                new ShaderProgram.ShaderModuleData(
+//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+//        ),
+//                new ArrayList<>(
+//                        List.of(
+//                        )
+//                ),
+//                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
+//                Arrays.asList(0f, 0f, 0f),
+//                0.3f,
+//                0.3f,
+//                0.3f, 36,
+//                18
+//        ));
+//        planets.get(0).createSphere();
+//
+//        //merkurius
+//        planets.add(new Sphere(Arrays.asList(
+//                new ShaderProgram.ShaderModuleData(
+//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+//        ),
+//                new ArrayList<>(
+//                        List.of(
+//                        )
+//                ),
+//                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
+//                Arrays.asList(0.0f, 0.0f, 0f),
+//                0.1f,
+//                0.1f,
+//                0.1f, 36,
+//                18
+//        ));
+//        planets.get(1).createSphere();
+//        planets.get(1).translateObject(-0.5f,0.0f,0.0f);
+//
+//        //venus
+//        planets.add(new Sphere(Arrays.asList(
+//                new ShaderProgram.ShaderModuleData(
+//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+//        ),
+//                new ArrayList<>(
+//                        List.of(
+//                        )
+//                ),
+//                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
+//                Arrays.asList(0.0f, 0.0f, 0f),
+//                0.1f,
+//                0.1f,
+//                0.1f, 36,
+//                18
+//        ));
+//        planets.get(2).createSphere();
+//        planets.get(2).translateObject(-0.7f,-0.1f,0.0f);
+//
+//        //bumi
+//        planets.add(new Sphere(Arrays.asList(
+//                new ShaderProgram.ShaderModuleData(
+//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+//        ),
+//                new ArrayList<>(
+//                        List.of(
+//                        )
+//                ),
+//                new Vector4f(0.0f, 1.0f, 0.0f, 0.0f),
+//                Arrays.asList(0.0f, 0.0f, 0f),
+//                0.1f,
+//                0.1f,
+//                0.1f, 36,
+//                18
+//        ));
+//        planets.get(3).createSphere();
+//        planets.get(3).translateObject(-0.9f,0.0f,0.0f);
+//
     }
 
 //    public static List<Vector3f> createCircle(float x, float y, float rx, float ry, double inc) {
@@ -410,9 +454,19 @@ public class Main {
     public void input() {
         if (window.isKeyPressed(GLFW_KEY_W)) {
             System.out.println("W");
-            for (Sphere planet:planets) {
-                planet.rotateObject((float) Math.toRadians(0.5f), 0f,0f, 1f);
+            countDegree++;
+//            for (Sphere planet:planets) {
+//                planet.rotateObject((float) Math.toRadians(0.5f), 0f,0f, 1f);
+//            }
+            kotak.rotateObject((float) Math.toRadians(0.5f), 0.5f,0.3f, 0f);
+            for (Object child:kotak.getChildObject()){
+                child.rotateObject((float)Math.toRadians(countDegree*-1*0.5f),0.0f,0.0f,1.0f);
+                child.translateObject(child.getCenterPoint().get(0)*-1,child.getCenterPoint().get(1)*-1,child.getCenterPoint().get(2)*-1);
+                child.rotateObject((float)Math.toRadians(0.5f),0f,0f,1.0f);
+                child.translateObject(child.getCenterPoint().get(0)*1,child.getCenterPoint().get(1)*1,child.getCenterPoint().get(2)*1);
+
             }
+
         }
 
         if (window.getMouseInput().isLeftButtonPressed()) {
@@ -554,8 +608,10 @@ public class Main {
             GL.createCapabilities();
 //            planet.draw();
 //            kotak.draw();
+            kotak.draw();
             input();
             curve();
+
             //code
 //            for (Object2d object : objects) {
 //                object.draw();
@@ -575,9 +631,9 @@ public class Main {
 //            for (Object object : objectsPointsControl) {
 //                object.draw();
 //            }
-            for (Sphere planets : planets){
-                planets.draw();
-            }
+//            for (Sphere planets : planets){
+//                planets.draw();
+//            }
             //Restore state
             glDisableVertexAttribArray(0);
 

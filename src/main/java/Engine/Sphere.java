@@ -124,19 +124,19 @@ public class Sphere extends Circle {
         vertices.add(tempVertices.get(6));
     }
 
-    public void draw() {
-        drawSetup();
-
-        //Draw the vertices
-        //optional
-        glLineWidth(1); //ketebalan garis
-        glPointSize(0); //besar kecil vertex
-
-        //wajib
-        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-        //GL_POLYGON -> alternatif buat kotak
-        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
-    }
+//    public void draw() {
+//        drawSetup();
+//
+//        //Draw the vertices
+//        //optional
+//        glLineWidth(1); //ketebalan garis
+//        glPointSize(0); //besar kecil vertex
+//
+//        //wajib
+//        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+//        //GL_POLYGON -> alternatif buat kotak
+//        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+//    }
 
     public void createSphere() {
         float pi = (float) Math.PI;

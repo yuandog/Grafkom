@@ -4,6 +4,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL30.*;
@@ -18,6 +19,10 @@ public class Object extends ShaderProgram {
     Matrix4f model;
 
     int vboColor;
+    List<Object>childObject;
+    Matrix4f x;
+
+    List<Float> centerPoint;
 
     //    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
 //        super(shaderModuleDataList);
@@ -36,6 +41,7 @@ public class Object extends ShaderProgram {
         uniformsMap.createUniform("model");
         this.color = color;
         model = new Matrix4f().identity();
+        childObject = new ArrayList<>();
     }
 
     public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, List<Vector3f> verticesColor) {
@@ -43,6 +49,22 @@ public class Object extends ShaderProgram {
         this.vertices = vertices;
         this.verticesColor = verticesColor;
         setupVAOVBOWithVerticesColor();
+    }
+
+    public List<Object> getChildObject() {
+        return childObject;
+    }
+
+    public void setChildObject(List<Object> childObject) {
+        this.childObject = childObject;
+    }
+
+    public List<Float> getCenterPoint() {
+        return centerPoint;
+    }
+
+    public void setCenterPoint(List<Float> centerPoint) {
+        this.centerPoint = centerPoint;
     }
 
     public void setupVAOVBO() {
@@ -118,7 +140,10 @@ public class Object extends ShaderProgram {
         //wajib
         //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
         //GL_POLYGON -> alternatif buat kotak
-        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
+        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+        for(Object child:childObject){
+            child.draw();
+        }
     }
 
     public void drawLine() {
@@ -141,12 +166,24 @@ public class Object extends ShaderProgram {
 
     public void translateObject(Float offsetX, Float offsetY, Float offsetZ) {
         model = new Matrix4f().translate(offsetX, offsetY, offsetZ).mul(new Matrix4f(model));
+        for (Object child:childObject
+             ) {
+            child.translateObject(offsetX,offsetY,offsetZ);
+        }
     }
     public void rotateObject(Float degree,Float x, Float y, Float z) {
         model = new Matrix4f().rotate(degree,x,y,z).mul(new Matrix4f(model));
+        for (Object child:childObject
+        ) {
+            child.rotateObject(degree,x,y,z);
+        }
     }
     public void scaleObject(Float scaleX,Float scaleY, Float scaleZ) {
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
+        for (Object child:childObject
+        ) {
+            child.scaleObject(scaleX,scaleY,scaleZ);
+        }
     }
 
     public void drawWithVerticesColor() {
