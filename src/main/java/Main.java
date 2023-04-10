@@ -32,29 +32,34 @@ public class Main {
     private ArrayList<Sphere> planets = new ArrayList<>();
     Sphere kotak;
     int countDegree=0;
+    Camera camera = new Camera();
+    Projection projection = new Projection(window.getWidth(),window.getHeight());
+
 
     public void init() {
         window.init();
         GL.createCapabilities();
+        camera.setPosition(0f,0f,1.7f);
+        camera.setRotation((float)Math.toRadians(0.0f),(float) Math.toRadians(30.0f));
 
 //        // code
-//        /*objects.add(new Object2d(
-//                Arrays.asList(
-//                        // shaderFile lokasi menyesuaikan objectnya
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//                ),
-//                new ArrayList<>(
-//                        List.of(
-//                                new Vector3f(0.0f, 0.5f, 0.0f),
-//                                new Vector3f(-0.5f, -0.5f, 0.0f),
-//                                new Vector3f(0.5f, -0.5f, 0.0f)
-//                        )
-//                ),
-//
-//                new Vector4f(0.0f,1.0f,0.0f,0.0f)
-//        ));
-//    }*/
+        /*objects.add(new Object2d(
+                Arrays.asList(
+                        // shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of(
+                                new Vector3f(0.0f, 0.5f, 0.0f),
+                                new Vector3f(-0.5f, -0.5f, 0.0f),
+                                new Vector3f(0.5f, -0.5f, 0.0f)
+                        )
+                ),
+
+                new Vector4f(0.0f,1.0f,0.0f,0.0f)
+        ));
+    }*/
 //        //rumput
 //        objectsRectangle.add(new Rectangle(
 //                Arrays.asList(
@@ -608,11 +613,11 @@ public class Main {
             GL.createCapabilities();
 //            planet.draw();
 //            kotak.draw();
-            kotak.draw();
+            kotak.draw(camera,projection);
             input();
             curve();
 
-            //code
+//            code
 //            for (Object2d object : objects) {
 //                object.draw();
 //            }

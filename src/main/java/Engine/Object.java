@@ -39,6 +39,8 @@ public class Object extends ShaderProgram {
         uniformsMap = new UniformsMap(getProgramId());
         uniformsMap.createUniform("uni_color");
         uniformsMap.createUniform("model");
+        uniformsMap.createUniform("projection");
+        uniformsMap.createUniform("view");
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
@@ -104,10 +106,12 @@ public class Object extends ShaderProgram {
 //        glVertexAttribPointer(0,3,GL_FLOAT,false,0,0);
 //    }
 
-    public void drawSetup() {
+    public void drawSetup(Camera camera, Projection projection) {
         bind();
         uniformsMap.setUniform("uni_color", color);
         uniformsMap.setUniform("model", model);
+        uniformsMap.setUniform("view", camera.getViewMatrix());
+        uniformsMap.setUniform("projection", projection.getProjMatrix());
         // Bind VBO
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -129,8 +133,8 @@ public class Object extends ShaderProgram {
 
     }
 
-    public void draw() {
-        drawSetup();
+    public void draw(Camera camera,Projection projection) {
+        drawSetup(camera,projection);
 
         //Draw the vertices
         //optional
@@ -142,22 +146,22 @@ public class Object extends ShaderProgram {
         //GL_POLYGON -> alternatif buat kotak
         glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
         for(Object child:childObject){
-            child.draw();
+            child.draw(camera,projection);
         }
     }
 
-    public void drawLine() {
-        drawSetup();
-
-        //Draw the vertices
-        //optional
-        glLineWidth(5); //ketebalan garis
-        glPointSize(0); //besar kecil vertex
-
-        //wajib
-        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
-    }
+//    public void drawLine() {
+//        drawSetup();
+//
+//        //Draw the vertices
+//        //optional
+//        glLineWidth(5); //ketebalan garis
+//        glPointSize(0); //besar kecil vertex
+//
+//        //wajib
+//        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+//        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+//    }
 
     public void addVertices(Vector3f newVertices) {
         vertices.add(newVertices);
