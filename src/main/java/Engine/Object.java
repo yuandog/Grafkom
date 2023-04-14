@@ -144,7 +144,7 @@ public class Object extends ShaderProgram {
         //wajib
         //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
         //GL_POLYGON -> alternatif buat kotak
-        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
         for(Object child:childObject){
             child.draw(camera,projection);
         }

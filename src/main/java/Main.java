@@ -5,7 +5,6 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,16 +30,170 @@ public class Main {
     private ArrayList<Vector3f> center = new ArrayList<>();
     private ArrayList<Sphere> planets = new ArrayList<>();
     Sphere kotak;
-    int countDegree=0;
+    private ArrayList<Sphere> head = new ArrayList<>();
+    private ArrayList<Sphere> whiteEye = new ArrayList<>();
+    private ArrayList<Sphere> lineWhiteEye = new ArrayList<>();
+    private ArrayList<Sphere> blackEyes = new ArrayList<>();
+    private ArrayList<Sphere> nose = new ArrayList<>();
+    private ArrayList<Sphere> whiteFace = new ArrayList<>();
+//    private ArrayList<Circle> blockWhiteFace = new ArrayList<>();
+    int countDegree = 0;
     Camera camera = new Camera();
-    Projection projection = new Projection(window.getWidth(),window.getHeight());
+    Projection projection = new Projection(window.getWidth(), window.getHeight());
 
 
     public void init() {
         window.init();
         GL.createCapabilities();
-        camera.setPosition(0f,0f,1.7f);
-        camera.setRotation((float)Math.toRadians(0.0f),(float) Math.toRadians(30.0f));
+        camera.setPosition(-1.15f, 0f, 2f);
+        camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(30.0f));
+
+
+        whiteFace.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.45f,
+                0.35f,
+                0.45f, 36,
+                18,2));
+        whiteFace.get(0).translateObject(0f,-0.14f,0f);
+        head.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(0.0f, 0.0f, 1.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18,2));
+        whiteEye.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.1f,
+                0.1f,
+                0.12f, 36,
+                18,2));
+
+        whiteEye.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.1f,
+                0.1f,
+                0.12f, 36,
+                18,2));
+        whiteEye.get(0).translateObject(-0.12f, 0.2f, 0f);
+        whiteEye.get(1).translateObject(0.12f, 0.21f, 0f);
+        lineWhiteEye.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(0.0f, 0.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.11f,
+                0.11f,
+                0.13f, 36,
+                18,2));
+        lineWhiteEye.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(0.0f, 0.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.11f,
+                0.11f,
+                0.13f, 36,
+                18,2));
+        lineWhiteEye.get(0).translateObject(-0.12f, 0.2f, 0f);
+        lineWhiteEye.get(1).translateObject(0.12f, 0.21f, 0f);
+
+        blackEyes.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(0.0f, 0.0f, 0.0f, 1.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.02f,
+                0.02f,
+                0.02f, 36,
+                18,2));
+        blackEyes.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(0.0f, 0.0f, 0.0f, 1.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.02f,
+                0.02f,
+                0.02f, 36,
+                18,2));
+        blackEyes.get(0).translateObject(-0.08f, 0.15f, 0f);
+        blackEyes.get(1).translateObject(0.08f, 0.15f, 0f);
+        nose.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 0.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.07f,
+                0.07f,
+                0.07f, 36,
+                18,2));
+        nose.get(0).translateObject(0f, 0.05f, 0f);
 
 //        // code
         /*objects.add(new Object2d(
@@ -317,7 +470,7 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18
+                18,2
         );
         kotak.scaleObject(2f, 2f, 2f);
 
@@ -335,12 +488,12 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18
+                18,2
         ));
 //        kotak.getChildObject().get(0).translateObject(0.25f,0.0f,0.0f);
-        kotak.getChildObject().get(0).scaleObject(0.5f,0.5f,0.5f);
-        kotak.getChildObject().get(0).translateObject(0.5f,-0.1f,0.0f);
-        kotak.getChildObject().get(0).setCenterPoint(Arrays.asList(0.5f,-0.1f,0.0f));
+        kotak.getChildObject().get(0).scaleObject(0.5f, 0.5f, 0.5f);
+        kotak.getChildObject().get(0).translateObject(0.5f, -0.1f, 0.0f);
+        kotak.getChildObject().get(0).setCenterPoint(Arrays.asList(0.5f, -0.1f, 0.0f));
 
         kotak.getChildObject().add(new Sphere(Arrays.asList(
                 new ShaderProgram.ShaderModuleData(
@@ -356,12 +509,12 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18
+                18,2
         ));
 //        kotak.getChildObject().get(1).translateObject(0.5f,0.0f,0.0f);
-        kotak.getChildObject().get(1).scaleObject(0.5f,0.5f,0.5f);
-        kotak.getChildObject().get(1).translateObject(-0.5f,-0.1f,0.0f);
-        kotak.getChildObject().get(1).setCenterPoint(Arrays.asList(-0.5f,-0.1f,0.0f));
+        kotak.getChildObject().get(1).scaleObject(0.5f, 0.5f, 0.5f);
+        kotak.getChildObject().get(1).translateObject(-0.5f, -0.1f, 0.0f);
+        kotak.getChildObject().get(1).setCenterPoint(Arrays.asList(-0.5f, -0.1f, 0.0f));
         //matahari
 //        planets.add(new Sphere(Arrays.asList(
 //                new ShaderProgram.ShaderModuleData(
@@ -463,15 +616,25 @@ public class Main {
 //            for (Sphere planet:planets) {
 //                planet.rotateObject((float) Math.toRadians(0.5f), 0f,0f, 1f);
 //            }
-            kotak.rotateObject((float) Math.toRadians(0.5f), 0.5f,0.3f, 0f);
-            for (Object child:kotak.getChildObject()){
-                child.rotateObject((float)Math.toRadians(countDegree*-1*0.5f),0.0f,0.0f,1.0f);
-                child.translateObject(child.getCenterPoint().get(0)*-1,child.getCenterPoint().get(1)*-1,child.getCenterPoint().get(2)*-1);
-                child.rotateObject((float)Math.toRadians(0.5f),0f,0f,1.0f);
-                child.translateObject(child.getCenterPoint().get(0)*1,child.getCenterPoint().get(1)*1,child.getCenterPoint().get(2)*1);
-
+            kotak.rotateObject((float) Math.toRadians(0.5f), 0.5f, 0.3f, 0f);
+            for (Object child : kotak.getChildObject()) {
+                child.rotateObject((float) Math.toRadians(countDegree * -1 * 0.5f), 0.0f, 0.0f, 1.0f);
+                child.translateObject(child.getCenterPoint().get(0) * -1, child.getCenterPoint().get(1) * -1, child.getCenterPoint().get(2) * -1);
+                child.rotateObject((float) Math.toRadians(0.5f), 0f, 0f, 1.0f);
+                child.translateObject(child.getCenterPoint().get(0) * 1, child.getCenterPoint().get(1) * 1, child.getCenterPoint().get(2) * 1);
             }
+            camera.moveForward(0.3f);
 
+        }
+        if (window.isKeyPressed(GLFW_KEY_S)) {
+            camera.moveBackwards(0.3f);
+
+        }
+        if (window.isKeyPressed(GLFW_KEY_A)) {
+            camera.moveLeft(0.1f);
+        }
+        if (window.isKeyPressed(GLFW_KEY_D)) {
+            camera.moveRight(0.1f);
         }
 
         if (window.getMouseInput().isLeftButtonPressed()) {
@@ -613,11 +776,49 @@ public class Main {
             GL.createCapabilities();
 //            planet.draw();
 //            kotak.draw();
-            kotak.draw(camera,projection);
+//            kotak.draw(camera, projection);
             input();
             curve();
 
 //            code
+            for (Sphere head : head
+            ) {
+                head.draw(camera, projection);
+            }
+            for (Sphere whiteFace:whiteFace
+            ) {
+//                whiteFace.createSphere();
+//                whiteFace.setupVAOVBO();
+                whiteFace.draw(camera,projection);
+            }
+//            for (Object blockWhiteFace:blockWhiteFace
+//                 ) {
+//                blockWhiteFace.draw(camera,projection);
+//            }
+            for (Sphere lineWhiteEye:lineWhiteEye
+                 ) {
+//                lineWhiteEye.createSphere();
+//                lineWhiteEye.setupVAOVBO();
+                lineWhiteEye.draw(camera,projection);
+            }
+            for (Sphere whiteEyes : whiteEye
+            ) {
+//                whiteEyes.createSphere();
+//                whiteEyes.setupVAOVBO();
+                whiteEyes.draw(camera, projection);
+            }
+            for (Sphere blackEyes : blackEyes
+            ) {
+//                blackEyes.createSphere();
+//                blackEyes.setupVAOVBO();
+                blackEyes.draw(camera, projection);
+            }
+            for (Sphere nose : nose
+            ) {
+//                nose.createSphere();
+//                nose.setupVAOVBO();
+                nose.draw(camera, projection);
+            }
 //            for (Object2d object : objects) {
 //                object.draw();
 //            }

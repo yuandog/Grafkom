@@ -15,22 +15,30 @@ public class Sphere extends Circle {
     int stackCount;
 
     public Sphere(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices,
-                  Vector4f color, List<Float> centerPoint, Float radiusX, Float radiusY, Float radiusZ, int sectorCount, int stackCount) {
+                  Vector4f color, List<Float> centerPoint, Float radiusX, Float radiusY, Float radiusZ, int sectorCount, int stackCount,int choose) {
         super(shaderModuleDataList, vertices, color, centerPoint, radiusX, radiusY);
         this.radiusZ = radiusZ;
         this.sectorCount = sectorCount;
         this.stackCount = stackCount;
 
-//        createBox();
-//        createSphere();
-        createEllipsoid();
-//        createHyperBoloid1Side();
-//        createHyperBoloid2Side();
-//        createEllipticCone();
-//        createEllipticParaboloid();
-//        createHyperboloidParaboloid();
-        setupVAOVBO();
+        if (choose == 1)
+            createBox();
+        if (choose == 2)
+            createSphere();
+        if (choose == 3)
+            createEllipsoid();
+        if (choose == 4)
+            createHyperBoloid1Side();
+        if (choose == 5)
+            createHyperBoloid2Side();
+        if (choose == 6)
+            createEllipticCone();
+        if (choose == 7)
+            createEllipticParaboloid();
+        if (choose == 8)
+            createHyperboloidParaboloid();
 
+        setupVAOVBO();
     }
 
     public void createBox() {
