@@ -15,7 +15,7 @@ public class Sphere extends Circle {
     int stackCount;
 
     public Sphere(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices,
-                  Vector4f color, List<Float> centerPoint, Float radiusX, Float radiusY, Float radiusZ, int sectorCount, int stackCount,int choose) {
+                  Vector4f color, List<Float> centerPoint, Float radiusX, Float radiusY, Float radiusZ, int sectorCount, int stackCount, int choose) {
         super(shaderModuleDataList, vertices, color, centerPoint, radiusX, radiusY);
         this.radiusZ = radiusZ;
         this.sectorCount = sectorCount;
@@ -37,9 +37,8 @@ public class Sphere extends Circle {
             createEllipticParaboloid();
         if (choose == 8)
             createHyperboloidParaboloid();
-        if (choose==9)
+        if (choose == 9)
             createSphereTemp();
-
         setupVAOVBO();
     }
 
@@ -172,7 +171,7 @@ public class Sphere extends Circle {
 
     public void createSphereTemp() {
         float pi = (float) Math.PI;
-        float sectorStep =  (float) Math.PI / sectorCount;
+        float sectorStep = (float) Math.PI / sectorCount;
         float stackStep = (float) Math.PI / stackCount;
         float sectorAngle, StackAngle, x, y, z;
         for (int i = 0; i <= stackCount; ++i) {
@@ -253,7 +252,7 @@ public class Sphere extends Circle {
             for (double u = -Math.PI; u <= Math.PI; u += Math.PI / 60) {
                 float x = radiusX * (float) (v * Math.cos(u));
                 float y = radiusY * (float) (v * Math.sin(u));
-                float z = radiusZ * (float) (v);
+                float z = radiusZ * (float) v;
                 temp.add(new Vector3f(x, z, y));
             }
         }
@@ -265,7 +264,7 @@ public class Sphere extends Circle {
     public void createEllipticParaboloid() {
         ArrayList<Vector3f> temp = new ArrayList<>();
 
-        for (double v = Math.PI ; v >= 0; v -= Math.PI / 60) {
+        for (double v = Math.PI; v >= 0; v -= Math.PI / 60) {
             for (double u = -Math.PI; u <= Math.PI; u += Math.PI / 60) {
                 float x = radiusX * (float) (v * Math.cos(u));
                 float y = radiusY * (float) (v * Math.sin(u));
@@ -281,7 +280,7 @@ public class Sphere extends Circle {
     public void createHyperboloidParaboloid() {
         ArrayList<Vector3f> temp = new ArrayList<>();
 
-        for (double v = Math.PI ; v >= 0; v -= Math.PI / 60) {
+        for (double v = Math.PI; v >= 0; v -= Math.PI / 60) {
             for (double u = -Math.PI; u <= Math.PI; u += Math.PI / 60) {
                 float x = radiusX * (float) (v * Math.tan(u));
                 float y = radiusY * (float) (v * (1 / Math.cos(u)));

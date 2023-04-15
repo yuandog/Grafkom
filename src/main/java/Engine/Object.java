@@ -150,8 +150,8 @@ public class Object extends ShaderProgram {
         }
     }
 
-//    public void drawLine() {
-//        drawSetup();
+//    public void drawLine(Camera camera,Projection projection) {
+//        drawSetup(camera,projection);
 //
 //        //Draw the vertices
 //        //optional
