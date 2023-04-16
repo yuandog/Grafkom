@@ -150,18 +150,18 @@ public class Object extends ShaderProgram {
         }
     }
 
-//    public void drawLine(Camera camera,Projection projection) {
-//        drawSetup(camera,projection);
-//
-//        //Draw the vertices
-//        //optional
-//        glLineWidth(5); //ketebalan garis
-//        glPointSize(0); //besar kecil vertex
-//
-//        //wajib
-//        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
-//        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
-//    }
+    public void drawLine(Camera camera,Projection projection) {
+        drawSetup(camera,projection);
+
+        //Draw the vertices
+        //optional
+        glLineWidth(5); //ketebalan garis
+        glPointSize(0); //besar kecil vertex
+
+        //wajib
+        //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
+        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+    }
 
     public void addVertices(Vector3f newVertices) {
         vertices.add(newVertices);
