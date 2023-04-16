@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Grafkom" />
         <module name="Grafkom2" />
+        <module name="ProyekGrafkom" />
       </profile>
     </annotationProcessing>
   </component>
