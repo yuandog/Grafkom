@@ -170,6 +170,7 @@ public class Object extends ShaderProgram {
 
     public void translateObject(Float offsetX, Float offsetY, Float offsetZ) {
         model = new Matrix4f().translate(offsetX, offsetY, offsetZ).mul(new Matrix4f(model));
+//        updateCenterPoint();
         for (Object child:childObject
              ) {
             child.translateObject(offsetX,offsetY,offsetZ);
@@ -177,6 +178,7 @@ public class Object extends ShaderProgram {
     }
     public void rotateObject(Float degree,Float x, Float y, Float z) {
         model = new Matrix4f().rotate(degree,x,y,z).mul(new Matrix4f(model));
+//        updateCenterPoint();
         for (Object child:childObject
         ) {
             child.rotateObject(degree,x,y,z);
@@ -188,6 +190,14 @@ public class Object extends ShaderProgram {
         ) {
             child.scaleObject(scaleX,scaleY,scaleZ);
         }
+    }
+    public void updateCenterPoint(){
+        Vector3f destTemp = new Vector3f();
+        model.transformPosition(0.0f,0.0f,0.0f,destTemp);
+        centerPoint.set(0,destTemp.x);
+        centerPoint.set(1,destTemp.y);
+        centerPoint.set(2,destTemp.z);
+//        System.out.println(centerPoint.get(0) + " " + centerPoint.get(1));
     }
     public void drawWithVerticesColor() {
         drawSetupWithVerticesColor();
