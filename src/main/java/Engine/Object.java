@@ -189,7 +189,6 @@ public class Object extends ShaderProgram {
             child.scaleObject(scaleX,scaleY,scaleZ);
         }
     }
-
     public void drawWithVerticesColor() {
         drawSetupWithVerticesColor();
         //Draw the vertices
