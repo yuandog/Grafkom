@@ -80,7 +80,6 @@ public class Main {
                 0.45f, 360,
                 180, 2));
         kepala.get(0).getChildObject().get(0).translateObject(0f, -0.05f, 0.1f);
-        kepala.get(0).getChildObject().get(0).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 
         //outline mata
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -115,8 +114,6 @@ public class Main {
                 18, 2));
         kepala.get(0).getChildObject().get(1).translateObject(-0.12f, 0.2f, 0.36f);
         kepala.get(0).getChildObject().get(2).translateObject(0.12f, 0.21f, 0.36f);
-        kepala.get(0).getChildObject().get(1).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
-        kepala.get(0).getChildObject().get(2).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 
         //mata
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -151,8 +148,6 @@ public class Main {
                 180, 2));
         kepala.get(0).getChildObject().get(3).translateObject(-0.12f, 0.2f, 0.4f);
         kepala.get(0).getChildObject().get(4).translateObject(0.12f, 0.21f, 0.4f);
-        kepala.get(0).getChildObject().get(3).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
-        kepala.get(0).getChildObject().get(4).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 
         //pupil
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -187,8 +182,6 @@ public class Main {
                 180, 2));
         kepala.get(0).getChildObject().get(5).translateObject(-0.08f, 0.2f, 0.52f);
         kepala.get(0).getChildObject().get(6).translateObject(0.08f, 0.2f, 0.52f);
-        kepala.get(0).getChildObject().get(5).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
-        kepala.get(0).getChildObject().get(6).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 
         //nose
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -207,7 +200,6 @@ public class Main {
                 0.07f, 360,
                 180, 2));
         kepala.get(0).getChildObject().get(7).translateObject(0f, 0.05f, 0.55f);
-        kepala.get(0).getChildObject().get(7).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 
         //mulut
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -226,7 +218,6 @@ public class Main {
                 0.15f, 360,
                 180, 2));
         kepala.get(0).getChildObject().get(8).translateObject(0f, -0.13f, 0.43f);
-        kepala.get(0).getChildObject().get(8).setCenterPoint(Arrays.asList(0.25f, 0.0f, 0.0f));
 //        //head
 //        kepala.add(new Sphere(Arrays.asList(
 //                new ShaderProgram.ShaderModuleData(
@@ -730,22 +721,43 @@ public class Main {
                 List<Float> temp = new ArrayList<>(kepala.getCenterPoint());
                 kepala.getChildObject().get(15).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 kepala.getChildObject().get(17).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(16).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(18).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 if (check) {
-                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) >= -0.46f) {
+                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) >= -0.47f) {
                         check = false;
                     } else {
-
+                        //lengan kiri
                         kepala.getChildObject().get(15).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
                         kepala.getChildObject().get(17).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
-
+                        //lengan kanan
+                        kepala.getChildObject().get(16).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        kepala.getChildObject().get(18).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        //kaki kiri
+                        kepala.getChildObject().get(19).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        kepala.getChildObject().get(21).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        //kaki kanan
+                        kepala.getChildObject().get(20).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
+                        kepala.getChildObject().get(22).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
                         System.out.println(kepala.getChildObject().get(15).getCenterPoint());
                     }
                 } else {
-                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) <= -0.49f) {
+                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) <= -0.49f &&kepala.getChildObject().get(15).getCenterPoint().get(2) <= -0.08f) {
                         check = true;
                     } else {
+                        //lengan kiri
                         kepala.getChildObject().get(15).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
                         kepala.getChildObject().get(17).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        //lengan kanan
+                        kepala.getChildObject().get(16).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
+                        kepala.getChildObject().get(18).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
+                        //kaki kiri
+                        kepala.getChildObject().get(19).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
+                        kepala.getChildObject().get(21).rotateObject((float) Math.toRadians(0.5f), -1f, 0f, 0f);
+                        //kaki kanan
+                        kepala.getChildObject().get(20).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+                        kepala.getChildObject().get(22).rotateObject((float) Math.toRadians(0.5f), 1f, 0f, 0f);
+
                         System.out.println(kepala.getChildObject().get(15).getCenterPoint());
                     }
                 }
@@ -762,25 +774,25 @@ public class Main {
                 kepala.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
                 kepala.translateObject(temp.get(0), temp.get(1), temp.get(2));
             }
-            for (Sphere topi : topi
-            ) {
-                topi.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-            }
-            for (Sphere badan : badan
-            ) {
-                badan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-            }
-            for (Sphere kaki : kaki) {
-                kaki.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-            }
-            for (Sphere tangan : tangan
-            ) {
-                tangan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-            }
-            for (Object kumis : kumis
-            ) {
-                kumis.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-            }
+//            for (Sphere topi : topi
+//            ) {
+//                topi.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
+//            }
+//            for (Sphere badan : badan
+//            ) {
+//                badan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
+//            }
+//            for (Sphere kaki : kaki) {
+//                kaki.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
+//            }
+//            for (Sphere tangan : tangan
+//            ) {
+//                tangan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
+//            }
+//            for (Object kumis : kumis
+//            ) {
+//                kumis.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
+//            }
         }
         if (window.isKeyPressed(GLFW_KEY_E)) {
             camera.moveBackwards(0.1f);
@@ -789,55 +801,57 @@ public class Main {
             camera.moveForward(0.1f);
         }
         if (window.isKeyPressed(GLFW_KEY_A)) {
-            for (Sphere topi : topi
-            ) {
-                topi.translateObject(-0.1f, 0f, 0f);
-            }
             for (Sphere kepala : kepala
             ) {
                 kepala.translateObject(-0.1f, 0f, 0f);
             }
-            for (Sphere badan : badan
-            ) {
-                badan.translateObject(-0.1f, 0f, 0f);
-            }
-            for (Sphere kaki : kaki) {
-                kaki.translateObject(-0.1f, 0f, 0f);
-            }
-            for (Sphere tangan : tangan
-            ) {
-                tangan.translateObject(-0.1f, 0f, 0f);
-            }
-            for (Object kumis : kumis
-            ) {
-                kumis.translateObject(-0.1f, 0f, 0f);
-            }
+//            for (Sphere topi : topi
+//            ) {
+//                topi.translateObject(-0.1f, 0f, 0f);
+//            }
+//
+//            for (Sphere badan : badan
+//            ) {
+//                badan.translateObject(-0.1f, 0f, 0f);
+//            }
+//            for (Sphere kaki : kaki) {
+//                kaki.translateObject(-0.1f, 0f, 0f);
+//            }
+//            for (Sphere tangan : tangan
+//            ) {
+//                tangan.translateObject(-0.1f, 0f, 0f);
+//            }
+//            for (Object kumis : kumis
+//            ) {
+//                kumis.translateObject(-0.1f, 0f, 0f);
+//            }
         }
         if (window.isKeyPressed(GLFW_KEY_D)) {
-            for (Sphere topi : topi
-            ) {
-                topi.translateObject(0.1f, 0f, 0f);
-            }
             for (Sphere kepala : kepala
             ) {
                 kepala.translateObject(0.1f, 0f, 0f);
             }
-            for (Sphere badan : badan
-            ) {
-                badan.translateObject(0.1f, 0f, 0f);
-            }
-            for (Sphere kaki : kaki) {
-                kaki.translateObject(0.1f, 0f, 0f);
-            }
-
-            for (Sphere tangan : tangan
-            ) {
-                tangan.translateObject(0.1f, 0f, 0f);
-            }
-            for (Object kumis : kumis
-            ) {
-                kumis.translateObject(0.1f, 0f, 0f);
-            }
+//            for (Sphere topi : topi
+//            ) {
+//                topi.translateObject(0.1f, 0f, 0f);
+//            }
+//
+//            for (Sphere badan : badan
+//            ) {
+//                badan.translateObject(0.1f, 0f, 0f);
+//            }
+//            for (Sphere kaki : kaki) {
+//                kaki.translateObject(0.1f, 0f, 0f);
+//            }
+//
+//            for (Sphere tangan : tangan
+//            ) {
+//                tangan.translateObject(0.1f, 0f, 0f);
+//            }
+//            for (Object kumis : kumis
+//            ) {
+//                kumis.translateObject(0.1f, 0f, 0f);
+//            }
         }
     }
 
