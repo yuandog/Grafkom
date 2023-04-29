@@ -32,9 +32,10 @@ public class Object extends ShaderProgram {
 //        uniformsMap.createUniform("uni_color");
 //        this.color = color;
 //    }
-    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
+    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, List<Float>centerPoint) {
         super(shaderModuleDataList);
         this.vertices = vertices;
+        this.centerPoint = centerPoint;
         setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
         uniformsMap.createUniform("uni_color");
@@ -170,7 +171,7 @@ public class Object extends ShaderProgram {
 
     public void translateObject(Float offsetX, Float offsetY, Float offsetZ) {
         model = new Matrix4f().translate(offsetX, offsetY, offsetZ).mul(new Matrix4f(model));
-//        updateCenterPoint();
+        updateCenterPoint();
         for (Object child:childObject
              ) {
             child.translateObject(offsetX,offsetY,offsetZ);
@@ -178,7 +179,7 @@ public class Object extends ShaderProgram {
     }
     public void rotateObject(Float degree,Float x, Float y, Float z) {
         model = new Matrix4f().rotate(degree,x,y,z).mul(new Matrix4f(model));
-//        updateCenterPoint();
+        updateCenterPoint();
         for (Object child:childObject
         ) {
             child.rotateObject(degree,x,y,z);
@@ -186,6 +187,7 @@ public class Object extends ShaderProgram {
     }
     public void scaleObject(Float scaleX,Float scaleY, Float scaleZ) {
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
+        updateCenterPoint();
         for (Object child:childObject
         ) {
             child.scaleObject(scaleX,scaleY,scaleZ);
