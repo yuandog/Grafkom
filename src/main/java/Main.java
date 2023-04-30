@@ -550,8 +550,12 @@ public class Main {
                 kepala.getChildObject().get(17).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 kepala.getChildObject().get(16).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 kepala.getChildObject().get(18).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(19).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(21).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(20).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(22).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 if (check) {
-                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) >= -0.47f) {
+                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) >= -0.47f && kepala.getChildObject().get(15).getCenterPoint().get(2) >= -0.08f) {
                         check = false;
                     } else {
                         //lengan kiri
@@ -588,8 +592,14 @@ public class Main {
                         System.out.println(kepala.getChildObject().get(15).getCenterPoint());
                     }
                 }
-                kepala.getChildObject().get(15).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                kepala.getChildObject().get(17).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                kepala.getChildObject().get(15).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(17).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(16).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(18).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(19).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(21).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(20).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                kepala.getChildObject().get(22).translateObject(temp.get(0), temp.get(1), temp.get(2));
             }
         }
         if (window.isKeyPressed(GLFW_KEY_W)) {
