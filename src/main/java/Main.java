@@ -218,177 +218,6 @@ public class Main {
                 0.15f, 360,
                 180, 2));
         kepala.get(0).getChildObject().get(8).translateObject(0f, -0.13f, 0.43f);
-//        //head
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 0.0f, 1.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.5f,
-//                0.5f,
-//                0.5f, 360,
-//                180, 2));
-//        //white face
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.45f,
-//                0.45f,
-//                0.45f, 360,
-//                180, 2));
-//        kepala.get(1).translateObject(0f, -0.05f, 0.1f);
-//
-//        //outline mata
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 0.0f, 0.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.12f,
-//                0.12f,
-//                0.14f, 36,
-//                18, 2));
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 0.0f, 0.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.12f,
-//                0.12f,
-//                0.14f, 36,
-//                18, 2));
-//        kepala.get(2).translateObject(-0.12f, 0.2f, 0.36f);
-//        kepala.get(3).translateObject(0.12f, 0.21f, 0.36f);
-//
-//        //mata
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.1f,
-//                0.1f,
-//                0.12f, 360,
-//                180, 2));
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.1f,
-//                0.1f,
-//                0.12f, 360,
-//                180, 2));
-//        kepala.get(4).translateObject(-0.12f, 0.2f, 0.4f);
-//        kepala.get(5).translateObject(0.12f, 0.21f, 0.4f);
-//
-//        //pupil
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 0.0f, 0.0f, 1.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.02f,
-//                0.02f,
-//                0.02f, 360,
-//                180, 2));
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(0.0f, 0.0f, 0.0f, 1.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.02f,
-//                0.02f,
-//                0.02f, 360,
-//                180, 2));
-//        kepala.get(6).translateObject(-0.08f, 0.2f, 0.52f);
-//        kepala.get(7).translateObject(0.08f, 0.2f, 0.52f);
-//
-//        //nose
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(1.0f, 0.0f, 0.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.07f,
-//                0.07f,
-//                0.07f, 360,
-//                180, 2));
-//        kepala.get(8).translateObject(0f, 0.05f, 0.55f);
-//
-//        //mulut
-//        kepala.add(new Sphere(Arrays.asList(
-//                new ShaderProgram.ShaderModuleData(
-//                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
-//                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-//        ),
-//                new ArrayList<>(
-//                        List.of(
-//                        )
-//                ),
-//                new Vector4f(1.0f, 0.0f, 0.0f, 0.0f),
-//                Arrays.asList(0f, 0f, 0f),
-//                0.15f,
-//                0.05f,
-//                0.15f, 360,
-//                180, 2));
-//        kepala.get(9).translateObject(0f, -0.13f, 0.43f);
 
         //badan
         kepala.get(0).getChildObject().add(new Sphere(Arrays.asList(
@@ -710,8 +539,6 @@ public class Main {
                 180, 6));
         kepala.get(0).getChildObject().get(27).rotateObject((float) Math.toRadians(60.0), 0f, 0f, -0.5f);
         kepala.get(0).getChildObject().get(27).translateObject(-0.4f, 0.35f, 0f);
-
-
     }
 
 
@@ -742,7 +569,7 @@ public class Main {
                         System.out.println(kepala.getChildObject().get(15).getCenterPoint());
                     }
                 } else {
-                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) <= -0.49f &&kepala.getChildObject().get(15).getCenterPoint().get(2) <= -0.08f) {
+                    if (kepala.getChildObject().get(15).getCenterPoint().get(1) <= -0.49f && kepala.getChildObject().get(15).getCenterPoint().get(2) <= -0.08f) {
                         check = true;
                     } else {
                         //lengan kiri
@@ -767,32 +594,13 @@ public class Main {
         }
         if (window.isKeyPressed(GLFW_KEY_W)) {
 
-            for (Sphere kepala : kepala
+            for (Object kepala : kepala
             ) {
                 List<Float> temp = new ArrayList<>(kepala.getCenterPoint());
                 kepala.translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
                 kepala.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
                 kepala.translateObject(temp.get(0), temp.get(1), temp.get(2));
             }
-//            for (Sphere topi : topi
-//            ) {
-//                topi.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-//            }
-//            for (Sphere badan : badan
-//            ) {
-//                badan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-//            }
-//            for (Sphere kaki : kaki) {
-//                kaki.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-//            }
-//            for (Sphere tangan : tangan
-//            ) {
-//                tangan.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-//            }
-//            for (Object kumis : kumis
-//            ) {
-//                kumis.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-//            }
         }
         if (window.isKeyPressed(GLFW_KEY_E)) {
             camera.moveBackwards(0.1f);
@@ -805,53 +613,13 @@ public class Main {
             ) {
                 kepala.translateObject(-0.1f, 0f, 0f);
             }
-//            for (Sphere topi : topi
-//            ) {
-//                topi.translateObject(-0.1f, 0f, 0f);
-//            }
-//
-//            for (Sphere badan : badan
-//            ) {
-//                badan.translateObject(-0.1f, 0f, 0f);
-//            }
-//            for (Sphere kaki : kaki) {
-//                kaki.translateObject(-0.1f, 0f, 0f);
-//            }
-//            for (Sphere tangan : tangan
-//            ) {
-//                tangan.translateObject(-0.1f, 0f, 0f);
-//            }
-//            for (Object kumis : kumis
-//            ) {
-//                kumis.translateObject(-0.1f, 0f, 0f);
-//            }
+
         }
         if (window.isKeyPressed(GLFW_KEY_D)) {
             for (Sphere kepala : kepala
             ) {
                 kepala.translateObject(0.1f, 0f, 0f);
             }
-//            for (Sphere topi : topi
-//            ) {
-//                topi.translateObject(0.1f, 0f, 0f);
-//            }
-//
-//            for (Sphere badan : badan
-//            ) {
-//                badan.translateObject(0.1f, 0f, 0f);
-//            }
-//            for (Sphere kaki : kaki) {
-//                kaki.translateObject(0.1f, 0f, 0f);
-//            }
-//
-//            for (Sphere tangan : tangan
-//            ) {
-//                tangan.translateObject(0.1f, 0f, 0f);
-//            }
-//            for (Object kumis : kumis
-//            ) {
-//                kumis.translateObject(0.1f, 0f, 0f);
-//            }
         }
     }
 
@@ -877,7 +645,7 @@ public class Main {
 //                tangan.draw(camera, projection);
 //            }
 
-            for (Sphere kepala : kepala
+            for (Object kepala : kepala
             ) {
                 kepala.draw(camera, projection);
             }
