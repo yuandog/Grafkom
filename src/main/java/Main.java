@@ -29,6 +29,7 @@ public class Main {
     private ArrayList<Object> curves = new ArrayList<>();
     private ArrayList<Vector3f> center = new ArrayList<>();
     private ArrayList<Sphere> planets = new ArrayList<>();
+    boolean muter = true;
     Sphere kotak;
     int countDegree = 0;
     Camera camera = new Camera();
@@ -452,6 +453,12 @@ public class Main {
 //        return circle;
 //    }
 
+    public void rotate() {
+        System.out.println(camera.getRotation());
+        if (muter) {
+                camera.addRotation(0f, (float) Math.toRadians(6.0f));
+        }
+    }
 
     public void input() {
         if (window.isKeyPressed(GLFW_KEY_W)) {
@@ -482,9 +489,12 @@ public class Main {
             Vector2f displayVec = window.getMouseInput().getDisplVec();
             camera.addRotation((float) Math.toRadians(displayVec.x * 0.1f), (float) Math.toRadians(displayVec.y * 0.1f));
         }
-        if(window.getMouseInput().getScroll().y!=0){
-            projection.setFOV(projection.getFOV()-window.getMouseInput().getScroll().y*0.1f);
+        if (window.getMouseInput().getScroll().y != 0) {
+            projection.setFOV(projection.getFOV() - window.getMouseInput().getScroll().y * 0.1f);
             window.getMouseInput().setScroll(new Vector2f());
+        }
+        if (window.isKeyPressed(GLFW_KEY_E)) {
+            rotate();
         }
 //        if (window.getMouseInput().isLeftButtonPressed()) {
 //            Vector2f pos = window.getMouseInput().getCurrentPos();
@@ -623,7 +633,7 @@ public class Main {
             glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GL.createCapabilities();
 //            planet.draw();
-            kotak.draw(camera,projection);
+            kotak.draw(camera, projection);
             kotak.draw(camera, projection);
             input();
 

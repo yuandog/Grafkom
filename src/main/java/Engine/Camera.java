@@ -24,7 +24,6 @@ public class Camera {
         rotation.add(x, y);
         recalculate();
     }
-
     public Vector3f getPosition() {
         return position;
     }
@@ -84,5 +83,9 @@ public class Camera {
     public void setRotation(float x, float y) {
         rotation.set(x, y);
         recalculate();
+    }
+
+    public Vector2f getRotation() {
+        return rotation;
     }
 }
