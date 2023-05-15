@@ -543,6 +543,15 @@ public class Main {
 
 
     public void input() {
+        if(window.isKeyPressed(GLFW_KEY_1)){
+            float x = camera.getPosition().x;
+            float y = camera.getPosition().y;
+            float z = camera.getPosition().z;
+            camera.setPosition(kepala.get(0).getCenterPoint().get(0),kepala.get(0).getCenterPoint().get(1),kepala.get(0).getCenterPoint().get(2));
+            camera.addRotation(0f,(float) Math.toRadians(2f),0f);
+            camera.setPosition(x,y,z);
+            camera.moveLeft(0.1f);
+        }
         if (window.isKeyPressed(GLFW_KEY_Z)) {
             for (Sphere kepala : kepala) {
                 List<Float> temp = new ArrayList<>(kepala.getCenterPoint());
