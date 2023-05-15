@@ -16,7 +16,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Main {
 
-    private Window window = new Window(800, 800, "Hello World");
+    private Window window = new Window(1920, 1080, "Hello World");
     boolean check = true;
     private ArrayList<Object> objects = new ArrayList<>();
     private ArrayList<Object> objectsRectangle = new ArrayList<>();
@@ -32,11 +32,8 @@ public class Main {
     Sphere kotak;
 
     private ArrayList<Sphere> kepala = new ArrayList<>();
-    private ArrayList<Sphere> badan = new ArrayList<>();
-    private ArrayList<Sphere> kaki = new ArrayList<>();
-    private ArrayList<Sphere> tangan = new ArrayList<>();
-    private ArrayList<Sphere> topi = new ArrayList<>();
-    private ArrayList<Object> kumis = new ArrayList<>();
+    Vector3f pos1;
+
     int countDegree = 0;
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
@@ -543,14 +540,28 @@ public class Main {
 
 
     public void input() {
-        if(window.isKeyPressed(GLFW_KEY_1)){
-            float x = camera.getPosition().x;
-            float y = camera.getPosition().y;
-            float z = camera.getPosition().z;
-            camera.setPosition(kepala.get(0).getCenterPoint().get(0),kepala.get(0).getCenterPoint().get(1),kepala.get(0).getCenterPoint().get(2));
-            camera.addRotation(0f,(float) Math.toRadians(2f),0f);
-            camera.setPosition(x,y,z);
-            camera.moveLeft(0.1f);
+        if (window.getMouseInput().isLeftButtonPressed()) {
+            Vector2f mousePosition = window.getMouseInput().getCurrentPos();
+            if (pos1 == null) {
+                pos1 = new Vector3f(mousePosition.x, mousePosition.y, 0);
+            }
+            if (mousePosition.x - pos1.x != 0) {
+                float x = camera.getPosition().x;
+                float y = camera.getPosition().y;
+                float z = camera.getPosition().z;
+
+                camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2));
+                if (mousePosition.x > pos1.x) {
+                    camera.addRotation(0f, (float) Math.toRadians(2f), 0f);
+                    camera.setPosition(x, y, z);
+                    camera.moveLeft(0.1f);
+                } else {
+                    camera.addRotation(0f, -(float) Math.toRadians(2f), 0f);
+                    camera.setPosition(x, y, z);
+                    camera.moveRight(0.1f);
+                }
+                pos1 = null;
+            }
         }
         if (window.isKeyPressed(GLFW_KEY_Z)) {
             for (Sphere kepala : kepala) {
