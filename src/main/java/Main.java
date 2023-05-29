@@ -3,6 +3,8 @@ import Engine.Object;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+import org.lwjgl.PointerBuffer;
+import org.lwjgl.assimp.*;
 import org.lwjgl.opengl.GL;
 
 import java.util.ArrayList;
@@ -29,6 +31,9 @@ public class Main {
     private ArrayList<Object> curves = new ArrayList<>();
     private ArrayList<Vector3f> center = new ArrayList<>();
     private ArrayList<Sphere> planets = new ArrayList<>();
+    private ArrayList<Float> positions = new ArrayList<>();
+    private ArrayList<Float> normals = new ArrayList<>();
+    private ArrayList<Float> texCoords = new ArrayList<>();
     boolean muter = true;
     Sphere kotak;
     int countDegree = 0;
@@ -315,7 +320,7 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18, 2
+                18, 1
         );
         kotak.scaleObject(1f, 1f, 1f);
 
@@ -333,7 +338,7 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18, 2
+                18, 1
         ));
 //        kotak.getChildObject().get(0).translateObject(0.25f,0.0f,0.0f);
         kotak.getChildObject().get(0).scaleObject(0.5f, 0.5f, 0.5f);
@@ -354,12 +359,15 @@ public class Main {
                 0.5f,
                 0.5f,
                 0.5f, 36,
-                18, 2
+                18, 1
         ));
 //        kotak.getChildObject().get(1).translateObject(0.5f,0.0f,0.0f);
         kotak.getChildObject().get(1).scaleObject(0.5f, 0.5f, 0.5f);
         kotak.getChildObject().get(1).translateObject(-1f, -0.1f, 0.0f);
         kotak.getChildObject().get(1).setCenterPoint(Arrays.asList(-0.5f, -0.1f, 0.0f));
+
+        loadFBXFile("C://Users/Lenovo/OneDrive/Documents/Blender project/donat.fbx");
+        System.out.println(positions);
         //matahari
 //        planets.add(new Sphere(Arrays.asList(
 //                new ShaderProgram.ShaderModuleData(
@@ -458,6 +466,59 @@ public class Main {
         if (muter) {
                 camera.addRotation(0f, (float) Math.toRadians(6.0f));
         }
+    }
+
+    public void loadFBXFile(String filepath) {
+        AIScene scene = Assimp.aiImportFile(filepath, Assimp.aiProcess_Triangulate);
+//        AIScene scene = Assimp.aiImportFile(filepath, Assimp.aiProcess_Triangulate);
+        System.out.println(scene);
+        PointerBuffer buffer = scene.mMeshes();
+
+        for (int i = 0; i < buffer.limit(); i++) {
+            AIMesh mesh = AIMesh.create(buffer.get(i));
+            processMesh(mesh);
+        }
+    }
+
+    public void processMesh(AIMesh mesh) {
+        AIVector3D.Buffer vectors = mesh.mVertices();
+        for (int i = 0; i < vectors.limit(); i++) {
+            AIVector3D vector = vectors.get(i);
+            positions.add(vector.x());
+            positions.add(vector.y());
+            positions.add(vector.z());
+        }
+
+        AIVector3D.Buffer coords = mesh.mTextureCoords(0);
+        for (int i = 0; i < coords.limit(); i++) {
+            AIVector3D coord = coords.get(i);
+            texCoords.add(coord.x());
+            texCoords.add(coord.y());
+        }
+
+        AIVector3D.Buffer norms = mesh.mNormals();
+        for (int i = 0; i < norms.limit(); i++) {
+            AIVector3D norm = norms.get(i);
+            normals.add(norm.x());
+            normals.add(norm.y());
+            normals.add(norm.z());
+        }
+
+
+        AIColor4D.Buffer vertexColors = mesh.mColors(0);
+        try {
+            for (int i = 0; i < vertexColors.limit(); i++) {
+                AIColor4D vertexColor = vertexColors.get(i);
+                normals.add(vertexColor.r());
+                normals.add(vertexColor.g());
+                normals.add(vertexColor.b());
+                normals.add(vertexColor.a());
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 
     public void input() {

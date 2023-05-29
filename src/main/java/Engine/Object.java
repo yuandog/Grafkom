@@ -35,12 +35,12 @@ public class Object extends ShaderProgram {
     public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-        setupVAOVBO();
+//        setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
-        uniformsMap.createUniform("uni_color");
-        uniformsMap.createUniform("model");
-        uniformsMap.createUniform("projection");
-        uniformsMap.createUniform("view");
+//        uniformsMap.createUniform("uni_color");
+//        uniformsMap.createUniform("model");
+//        uniformsMap.createUniform("projection");
+//        uniformsMap.createUniform("view");
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
@@ -144,7 +144,7 @@ public class Object extends ShaderProgram {
         //wajib
         //GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLES_FAN, GL_POINT -> YG SERING DIPAKAI
         //GL_POLYGON -> alternatif buat kotak
-        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
+        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
         for(Object child:childObject){
             child.draw(camera,projection);
         }

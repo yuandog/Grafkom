@@ -21,7 +21,7 @@ public class Circle extends Object {
         this.radiusX = radiusX;
         this.radiusY = radiusY;
 //        createCircle();
-        setupVAOVBO();
+//        setupVAOVBO();
     }
 
     public double degToRad(float degree) {
