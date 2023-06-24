@@ -53,8 +53,9 @@ public class Sphere extends Circle {
             createSphereTemp();
         setupVAOVBO();
     }
+
     public void createBoxVertices() {
-        System.out.println("code");
+//        System.out.println("code");
         vertices.clear();
         Vector3f temp = new Vector3f();
         ArrayList<Vector3f> tempVertices = new ArrayList<>();
@@ -200,6 +201,7 @@ public class Sphere extends Circle {
                 new Vector3f(0.0f, 1.0f, 0.0f)
         ));
     }
+
     public void createBox() {
         Vector3f temp = new Vector3f();
         ArrayList<Vector3f> tempVertices = new ArrayList<>();
@@ -319,10 +321,10 @@ public class Sphere extends Circle {
 
         //posisi pointLight
         Vector3f[] _pointLightPositions = {
-                new Vector3f(0.7f, 0.2f, 2.0f),
-                new Vector3f(2.3f, -3.3f, -4.0f),
-                new Vector3f(-4.0f, 2.0f, -12.0f),
-                new Vector3f(0.0f, 0.0f, -3.0f)
+                new Vector3f(1f, 2f, 0f),
+                new Vector3f(-1f, 1f, 0f),
+                new Vector3f(0f, 1f, 0f),
+                new Vector3f(0f, 1f, 0f)
         };
         for (int i = 0; i < _pointLightPositions.length; i++) {
             uniformsMap.setUniform("pointLights[" + i + "].position", _pointLightPositions[i]);
@@ -347,7 +349,7 @@ public class Sphere extends Circle {
         uniformsMap.setUniform("spotLight.linear", 0.09f);
         uniformsMap.setUniform("spotLight.quadratic", 0.09f);
         uniformsMap.setUniform("spotLight.cutOff", (float) Math.cos(Math.toRadians(12.5f)));
-        uniformsMap.setUniform("spotLight.outerCutOff", (float) Math.cos(Math.toRadians(12.5f)));
+        uniformsMap.setUniform("spotLight.outerCutOff", (float) Math.cos(Math.toRadians(15f)));
 
 
         uniformsMap.setUniform("viewPos", camera.getPosition());
