@@ -32,6 +32,9 @@ public class Main {
     Sphere kotak;
 
     private ArrayList<Sphere> kepala = new ArrayList<>();
+    private ArrayList<Sphere> ndas = new ArrayList<>();
+    private ArrayList<Sphere>ruangan = new ArrayList<>();
+
     Vector3f pos1;
 
     int countDegree = 0;
@@ -41,7 +44,140 @@ public class Main {
     public void init() {
         window.init();
         GL.createCapabilities();
-        camera.setPosition(0f, 0f, 3f);
+        camera.setPosition(6f, 0f, 9f);
+
+        ruangan.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).translateObject(-5f,0.f,0f);
+        ruangan.get(0).scaleObject(0.5f,5f,1f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(0).translateObject(2.0f,0.f,0f);
+        ruangan.get(0).getChildObject().get(0).scaleObject(0.5f,5f,13f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(1).translateObject(0.315f,0.f,3.5f);
+        ruangan.get(0).getChildObject().get(1).scaleObject(13f,5f,1f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(2).translateObject(14.5f,0.f,0.5f);
+        ruangan.get(0).getChildObject().get(2).scaleObject(0.5f,5f,13f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(3).translateObject(9.5f,0.f,1.2f);
+        ruangan.get(0).getChildObject().get(3).scaleObject(0.5f,5f,7f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(4).translateObject(0.11f,0.f,6.8f);
+        ruangan.get(0).getChildObject().get(4).scaleObject(13f,5f,1f);
+
+        ruangan.get(0).getChildObject().add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 0.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.5f,
+                0.5f,
+                0.5f, 36,
+                18, 1
+        ));
+        ruangan.get(0).getChildObject().get(5).translateObject(1.f,0.f,10.f);
+        ruangan.get(0).getChildObject().get(5).scaleObject(6f,5f,1f);
 
 
         kepala.add(new Sphere(Arrays.asList(
@@ -536,32 +672,53 @@ public class Main {
                 180, 6));
         kepala.get(0).getChildObject().get(27).rotateObject((float) Math.toRadians(60.0), 0f, 0f, -0.5f);
         kepala.get(0).getChildObject().get(27).translateObject(-0.4f, 0.35f, 0f);
+
+        ndas.add(new Sphere(Arrays.asList(
+                new ShaderProgram.ShaderModuleData(
+                        "resources/shaders/scene.vert", GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(
+                        List.of(
+                        )
+                ),
+                new Vector4f(1.0f, 1.0f, 1.0f, 0.0f),
+                Arrays.asList(0f, 0f, 0f),
+                0.2f,
+                0.2f,
+                0.1f, 360,
+                180, 3));
+        ndas.get(0).translateObject(1f,0f,0f);
     }
 
 
     public void input() {
+//        if (window.getMouseInput().isLeftButtonPressed()) {
+//            Vector2f mousePosition = window.getMouseInput().getCurrentPos();
+//            if (pos1 == null) {
+//                pos1 = new Vector3f(mousePosition.x, mousePosition.y, 0);
+//            }
+//            if (mousePosition.x - pos1.x != 0) {
+//                float x = camera.getPosition().x;
+//                float y = camera.getPosition().y;
+//                float z = camera.getPosition().z;
+//
+////                camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2));
+//                if (mousePosition.x > pos1.x) {
+//                    camera.addRotation(0f, (float) Math.toRadians(5f), 0f);
+//                    camera.setPosition(x, y, z);
+////                    camera.moveLeft(0.1f);
+//                } else {
+//                    camera.addRotation(0f, -(float) Math.toRadians(5f), 0f);
+//                    camera.setPosition(x, y, z);
+////                    camera.moveRight(0.1f);
+//                }
+//                pos1 = null;
+//            }
+//        }
         if (window.getMouseInput().isLeftButtonPressed()) {
-            Vector2f mousePosition = window.getMouseInput().getCurrentPos();
-            if (pos1 == null) {
-                pos1 = new Vector3f(mousePosition.x, mousePosition.y, 0);
-            }
-            if (mousePosition.x - pos1.x != 0) {
-                float x = camera.getPosition().x;
-                float y = camera.getPosition().y;
-                float z = camera.getPosition().z;
-
-                camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2));
-                if (mousePosition.x > pos1.x) {
-                    camera.addRotation(0f, (float) Math.toRadians(2f), 0f);
-                    camera.setPosition(x, y, z);
-                    camera.moveLeft(0.1f);
-                } else {
-                    camera.addRotation(0f, -(float) Math.toRadians(2f), 0f);
-                    camera.setPosition(x, y, z);
-                    camera.moveRight(0.1f);
-                }
-                pos1 = null;
-            }
+            Vector2f displayVec = window.getMouseInput().getDisplVec();
+            camera.addRotation((float) Math.toRadians(displayVec.x * 0.1f), (float) Math.toRadians(displayVec.y * 0.1f),0f);
         }
         if (window.isKeyPressed(GLFW_KEY_Z)) {
             for (Sphere kepala : kepala) {
@@ -622,70 +779,78 @@ public class Main {
                 kepala.getChildObject().get(22).translateObject(temp.get(0), temp.get(1), temp.get(2));
             }
         }
-        if (window.isKeyPressed(GLFW_KEY_W)) {
-
-            for (Object kepala : kepala
-            ) {
-                List<Float> temp = new ArrayList<>(kepala.getCenterPoint());
-                kepala.translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                kepala.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);
-                kepala.translateObject(temp.get(0), temp.get(1), temp.get(2));
-            }
-        }
-        if (window.isKeyPressed(GLFW_KEY_E)) {
-            camera.moveBackwards(0.1f);
-        }
-        if (window.isKeyPressed(GLFW_KEY_S)) {
+//        if (window.isKeyPressed(GLFW_KEY_W)) {
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//            for (Object kepala : kepala
+//            ) {
+//                List<Float> temp = new ArrayList<>(kepala.getCenterPoint());
+////                kepala.translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+////                kepala.rotateObject((float) Math.toRadians(0.5f), 0f, 1f, 0f);w
+////                kepala.translateObject(temp.get(0), temp.get(1), temp.get(2));
+//                kepala.translateObject(0f, 0f, -0.1f);
+//            }
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//        }
+//        if (window.isKeyPressed(GLFW_KEY_E)) {
+//            camera.moveBackwards(0.1f);
+//        }
+//        if (window.isKeyPressed(GLFW_KEY_S)) {
+////            camera.moveForward(0.1f);
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//            for (Object kepala:kepala
+//                 ) {
+//                kepala.translateObject(0f,0f,0.1f);
+//
+//            }
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//        }
+//        if (window.isKeyPressed(GLFW_KEY_A)) {
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//            for (Sphere kepala : kepala
+//            ) {
+//                kepala.translateObject(-0.1f, 0f, 0f);
+//            }
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//
+//        }
+//        if (window.isKeyPressed(GLFW_KEY_D)) {
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//            for (Sphere kepala : kepala
+//            ) {
+//                kepala.translateObject(0.1f, 0f, 0f);
+//            }
+//            camera.setPosition(kepala.get(0).getCenterPoint().get(0), kepala.get(0).getCenterPoint().get(1), kepala.get(0).getCenterPoint().get(2)+3F);
+//        }
+        if(window.isKeyPressed(GLFW_KEY_W)){
             camera.moveForward(0.1f);
         }
-        if (window.isKeyPressed(GLFW_KEY_A)) {
-            for (Sphere kepala : kepala
-            ) {
-                kepala.translateObject(-0.1f, 0f, 0f);
-            }
-
+        if(window.isKeyPressed(GLFW_KEY_A)){
+            camera.moveLeft(0.1f);
         }
-        if (window.isKeyPressed(GLFW_KEY_D)) {
-            for (Sphere kepala : kepala
-            ) {
-                kepala.translateObject(0.1f, 0f, 0f);
-            }
+        if(window.isKeyPressed(GLFW_KEY_D)){
+            camera.moveRight(0.1f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_S)){
+            camera.moveBackwards(0.1f);
         }
     }
 
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
+            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GL.createCapabilities();
 
             input();
-
-//            code
-//            for (Sphere kaki : kaki
-//            ) {
-//                kaki.draw(camera, projection);
-//            }
-//            for (Sphere badan : badan
-//            ) {
-//                badan.draw(camera, projection);
-//            }
-//            for (Sphere tangan : tangan
-//            ) {
-//                tangan.draw(camera, projection);
-//            }
-
+            for (Sphere ruangan:ruangan
+            ) {
+                ruangan.draw(camera,projection);
+            }
             for (Object kepala : kepala
             ) {
                 kepala.draw(camera, projection);
             }
-//            for (Object kumis : kumis) {
-//                kumis.drawLine(camera, projection);
-//            }
-//            for (Sphere topi : topi
-//            ) {
-//                topi.draw(camera, projection);
-//            }
+
             //Restore state
             glDisableVertexAttribArray(0);
 

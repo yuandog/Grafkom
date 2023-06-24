@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL30.*;
 
 public class Object extends ShaderProgram {
 
-    public List<Vector3f> vertices, verticesColor;
+    List<Vector3f> vertices, verticesColor;
     int vao;
     int vbo;
     UniformsMap uniformsMap;
@@ -36,12 +36,11 @@ public class Object extends ShaderProgram {
         super(shaderModuleDataList);
         this.vertices = vertices;
         this.centerPoint = centerPoint;
-        setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
-        uniformsMap.createUniform("uni_color");
-        uniformsMap.createUniform("model");
-        uniformsMap.createUniform("projection");
-        uniformsMap.createUniform("view");
+//        uniformsMap.createUniform("uni_color");
+//        uniformsMap.createUniform("model");
+//        uniformsMap.createUniform("projection");
+//        uniformsMap.createUniform("view");
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
@@ -119,7 +118,7 @@ public class Object extends ShaderProgram {
         glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
     }
 
-    public void drawSetupWithVerticesColor() {
+    public void drawSetupWithVerticesColor(Camera camera, Projection projection) {
         bind();
 
         // Bind VBO
@@ -201,8 +200,8 @@ public class Object extends ShaderProgram {
         centerPoint.set(2,destTemp.z);
 //        System.out.println(centerPoint.get(0) + " " + centerPoint.get(1));
     }
-    public void drawWithVerticesColor() {
-        drawSetupWithVerticesColor();
+    public void drawWithVerticesColor(Camera camera, Projection projection) {
+        drawSetupWithVerticesColor(camera, projection);
         //Draw the vertices
         //optional
         glLineWidth(1); //ketebalan garis

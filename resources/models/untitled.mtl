@@ -1,0 +1,33 @@
+# Blender 3.5.1 MTL File: 'None'
+# www.blender.org
+
+newmtl mat1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/mat1_baseColor.jpeg
+
+newmtl mat2
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Ke C:/mat2_baseColor.jpeg
+
+newmtl pine
+Ns 2.191943
+Ka 0.910758 0.910758 0.910758
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/pine_baseColor.png
+map_d C:/pine_baseColor.png
+map_Bump -bm 1.000000 C:/pine_normal.jpeg
