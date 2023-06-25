@@ -8,7 +8,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class MouseInput {
 
     private Vector2f currentPos;
-    private Vector2f displVec;
+    private Vector3f displVec;
     private Vector2f scroll;
     private boolean inWindow;
     private boolean leftButtonPressed;
@@ -21,7 +21,7 @@ public class MouseInput {
         previousPos = new Vector2f(-1, -1);
         currentPos = new Vector2f();
         scroll = new Vector2f();
-        displVec = new Vector2f();
+        displVec = new Vector3f();
         leftButtonPressed = false;
         rightButtonPressed = false;
         leftButtonReleased = false;
@@ -53,7 +53,7 @@ public class MouseInput {
         return scroll;
     }
 
-    public Vector2f getDisplVec() {
+    public Vector3f getDisplVec() {
         return displVec;
     }
 
