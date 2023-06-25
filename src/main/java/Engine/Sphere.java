@@ -22,9 +22,7 @@ public class Sphere extends Circle {
     int stackCount;
     int nbo;
     int nboColor;
-    Model m;
     List<Vector3f> normal;
-    List<Material> material;
 
     public Sphere(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices,
                   Vector4f color, List<Float> centerPoint, Float radiusX, Float radiusY, Float radiusZ, int sectorCount, int stackCount, int choose) {
@@ -314,33 +312,28 @@ public class Sphere extends Circle {
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
 
         //directional Light
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f, -1.0f, -0.3f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f, 0.05f, 0.05f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(0f, 1f, 0f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f,0.05f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f, 0.4f, 0.4f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f, 0.5f, 0.5f));
 
         //posisi pointLight
         Vector3f[] _pointLightPositions = {
-                new Vector3f(6f, 2.3f, 9.3f),
-                new Vector3f(-6.37f, 0.45f, 22.82f),
-                new Vector3f(-18.36f, 0.05f, -11.48f),
-//                new Vector3f(7.09f, 1.5f, -3.2f),
-                new Vector3f(-14.05f, 0.55f, -18.6f),
-                new Vector3f(-28.024f, 0.16f, -4.54f),
-                new Vector3f(-28.024f, 0.04f, 6.36f),
-                new Vector3f(1.14f, 0.28f, -11.39f),
-                new Vector3f(12.14f, 0.14f, -1.86f),
-                new Vector3f(-24f, 0.14f, 16.4f)
+                new Vector3f(6.214055f, 1.1962f, 7.146f),
+                new Vector3f(-4.995f, 1.1962f, 14.06f),
+                new Vector3f(-17.07f, 1.1962f, -2.094f),
+                new Vector3f(-17.02f, 1.1962f, 15.185f),
+                new Vector3f(19.63f, 0.9f, 20.78f),
         };
         for (int i = 0; i < _pointLightPositions.length; i++) {
 
             uniformsMap.setUniform("pointLights[" + i + "].position", _pointLightPositions[i]);
             uniformsMap.setUniform("pointLights[" + i + "].ambient", new Vector3f(0.05f, 0.05f, 0.05f));
             uniformsMap.setUniform("pointLights[" + i + "].diffuse", new Vector3f(0.8f, 0.8f, 0.8f));
-            uniformsMap.setUniform("pointLights[" + i + "].specular", new Vector3f(1.0f, 1.0f, 1.0f));
+            uniformsMap.setUniform("pointLights[" + i + "].specular", new Vector3f(0.5f, 0.5f, 0.5f));
             uniformsMap.setUniform("pointLights[" + i + "].constant", 1.0f);
-            uniformsMap.setUniform("pointLights[" + i + "].linear", 0.09f);
-            uniformsMap.setUniform("pointLights[" + i + "].quadratic", 0.032f);
+            uniformsMap.setUniform("pointLights[" + i + "].linear", 0.002f);
+            uniformsMap.setUniform("pointLights[" + i + "].quadratic", 0.1f);
         }
 
 
@@ -522,93 +515,4 @@ public class Sphere extends Circle {
         vertices.addAll(temp);
         setupVAOVBO();
     }
-//    public void loadObject() {
-//        vertices.clear();
-////        Vector3f temp = new Vector3f();
-////        ArrayList<Vector3f> tempVertices = new ArrayList<>();
-//
-//        try {
-//            m = ObjLoader.loadModel(new File("resources/models/untitled.obj"));
-//            material = ObjLoader.loadMTLFile("resources/models/untitled.mtl");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        m.getSize();
-//        normal = new ArrayList<>();
-//        for (Face face : m.faces) {
-//            Vector3f n1 = m.normals.get((int) face.normal.x - 1);
-//            normal.add(n1);
-//            Vector3f v1 = m.vertices.get((int) face.vertex.x - 1);
-//            vertices.add(v1);
-////            Vector3f t1 = new Vector3f(m.textures.get((int) face.texture.x-1), 0f);
-////            textures.add(t1);
-//            verticesColor.add(face.color);
-//
-//            Vector3f n2 = m.normals.get((int) face.normal.y - 1);
-//            normal.add(n2);
-//            Vector3f v2 = m.vertices.get((int) face.vertex.y - 1);
-//            vertices.add(v2);
-////            Vector3f t2 = new Vector3f(m.textures.get((int) face.texture.y-1), 0f);
-////            textures.add(t2);
-//            verticesColor.add(face.color);
-//
-//            Vector3f n3 = m.normals.get((int) face.normal.z - 1);
-//            normal.add(n3);
-//            Vector3f v3 = m.vertices.get((int) face.vertex.z - 1);
-//            vertices.add(v3);
-////            Vector3f t3 = new Vector3f(m.textures.get((int) face.texture.z-1), 0f);
-////            textures.add(t3);
-//            verticesColor.add(face.color);
-//        }
-//    }
-//    public void drawSetupWithVerticesColor(Camera camera, Projection projection){
-//        super.drawSetupWithVerticesColor(camera, projection);
-//
-//        glEnableVertexAttribArray(2);
-//        glBindBuffer(GL_ARRAY_BUFFER, nboColor);
-//        glVertexAttribPointer(2, 3,
-//                GL_FLOAT,
-//                false,
-//                0, 0);
-//
-//        glEnableVertexAttribArray(1);
-//        glBindBuffer(GL_ARRAY_BUFFER, nbo);
-//        glVertexAttribPointer(1, 3,
-//                GL_FLOAT,
-//                false,
-//                0, 0);
-//
-////        glEnableVertexAttribArray(3);
-////        glBindBuffer(GL_ARRAY_BUFFER, textCoords);
-////        glVertexAttribPointer(3, 3,
-////                GL_FLOAT,
-////                false,
-////                0, 0);
-//
-//        uniformsMap.setUniform("lightColor",new Vector3f(1.0f,1.0f,1.0f));
-//        uniformsMap.setUniform("lightPos",new Vector3f(1.0f,1.0f,0.0f));
-//        uniformsMap.setUniform("viewPos",camera.getPosition());
-//    }
-//    public void setupVAOVBOWithVerticesColor(){
-//        super.setupVAOVBOWithVerticesColor();
-//        nbo = glGenBuffers();
-//        glBindBuffer(GL_ARRAY_BUFFER, nbo);
-//        glBufferData(GL_ARRAY_BUFFER,
-//                Utils.listoFloat(normal),
-//                GL_STATIC_DRAW);
-//
-////        textCoords = glGenBuffers();
-////        glBindBuffer(GL_ARRAY_BUFFER, textCoords);
-////        glBufferData(GL_ARRAY_BUFFER,
-////                Utils.listoFloat(textures),
-////                GL_STATIC_DRAW);
-//
-//        //set nboColor
-//        nboColor = glGenBuffers();
-//        glBindBuffer(GL_ARRAY_BUFFER, nboColor);
-//        glBufferData(GL_ARRAY_BUFFER,
-//                Utils.listoFloat(verticesColor),
-//                GL_STATIC_DRAW);
-//    }
 }

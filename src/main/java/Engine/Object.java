@@ -112,6 +112,8 @@ public class Object extends ShaderProgram {
         uniformsMap.setUniform("model", model);
         uniformsMap.setUniform("view", camera.getViewMatrix());
         uniformsMap.setUniform("projection", projection.getProjMatrix());
+
+
         // Bind VBO
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
